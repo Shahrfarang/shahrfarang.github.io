@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shahrefarang</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <!-- Typography CSS -->
+    <link rel="stylesheet" href="css/typography.css">
+    <!-- Style -->
+    <link rel="stylesheet" href="css/style.css"/>
+    <!-- Responsive -->
+    <link rel="stylesheet" href="css/responsive.css"/>
+
+    <link rel="stylesheet" href="css/tvcss/loading.css">
+    <link rel="stylesheet" href="css/tvcss/custom.css">
+
+</head>
+<body>
+
+
+<div style="position: fixed;top: 0;z-index: 1000;display: none">
+    <button onclick="up_clicked()" id="up">Up</button>
+    <button onclick="down_clicked()" id="down">Down</button>
+    <button onclick="left_clicked()" id="left">Left</button>
+    <button onclick="right_clicked()" id="right">Right</button>
+    <button onclick="enter_clicked()" id="btn">Enter</button>
+</div>
+
+<!--      // =================== Start Drawer =============================-->
+<!--      // =================== Start Drawer =============================-->
+<!--      // =================== Start Drawer =============================-->
+<div class="drawer-left overlay-container">
+
+    <div class="overlay-child" style="text-align: center">
+        <img class="drawer-logo" src="images/tv/logo.png">
+        <h4 class="drawer-name">شهر فرنگ</h4>
+    </div>
+
+    <div class="drawer-item-container overlay-child">
+        <div>
+            <div id="drawer_item0" class="drawer-item">
+                <img  src="images/tv/menu0.png">
+                <div  >خانه</div>
+            </div>
+            <div id="drawer_item1" class="drawer-item">
+                <img  src="images/tv/menu1.png">
+                <div >سریال</div>
+            </div>
+            <div id="drawer_item2" class="drawer-item">
+                <img  src="images/tv/menu2.png">
+                <div >لایو</div>
+            </div>
+            <div id="drawer_item3" class="drawer-item">
+                <img  src="images/tv/menu3.png">
+                <div  >فیلم</div>
+            </div>
+            <div id="drawer_item4" class="drawer-item">
+                <img  src="images/tv/menu4.png">
+                <div  >جستجو</div>
+            </div>
+            <div id="drawer_item5" class="drawer-item">
+                <img  src="images/tv/menu5.png">
+                <div  >پشتیبانی</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--      // =================== End Drawer =============================-->
+<!--      // =================== End Drawer =============================-->
+<!--      // =================== End Drawer =============================-->
+
+<div class="content-right">
+
+
+    <!--      // =================== Loading =============================-->
+    <div style="width: 100%;height: 100%;position: fixed;">
+        <div style="text-align: center" class="loading-center">
+            <div id="error_cnt" style="width: 100%;text-align: center;margin-top: 40px;display: none">
+                <h4 id="error_msg">Connection error</h4>
+            </div>
+
+            <div id="btn_cnt" style="width: 100%;text-align: center;margin-top: 40px;display: none">
+                <button id="x0y1" class="btn btn-danger">Try Again</button>
+            </div>
+            <div id="loading_cnt" style="display: none;" class="lds-ring">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div>
+        <div class="series-header" >
+            <div style="width: 50%;height: 100%;display:flex ;justify-content: center;align-items: center">
+                <img style="height: 95%;aspect-ratio: 2/1;" id="serial_image" src="#">
+            </div>
+            <div style="width: 50%;height: 100%;padding: 1%;">
+                <div style="width: 100%;height: 30%;text-align:center;">
+                    <button id="x0y0" class="series-fav-btn">
+
+                        <span id="fav_text1" style="color: #6810fc;font-size: 35px;font-weight: bold">افزودن</span>
+                        <span id="fav_text2" style="font-size: 35px;font-weight: bold">&nbsp; از لیست منتخب</span>
+                        <img id="fav_image" width="37px" src="images/tv/logo.png">
+                    </button>
+                </div>
+
+                <div style="width: 100%;height: 70%;padding-top: 5px">
+                    <div class="divider">
+                    </div>
+                    <div style="width:100%;height:100%;display:flex ;justify-content: center;align-items: center;">
+                        <img style="width: 100%;aspect-ratio: 90/25;" id="detail_image" src="images/tv/detail_image_defualt.png">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div style="width: 82%;position: absolute;top:38%;left:13%;right:5%;bottom:0;" class="divider"></div>
+
+        <div class="series-grid">
+            <div style="position: relative;padding-top: 0px" id="rows_cnt" class="main-content">
+
+            </div>
+        </div>
+
+
+        <!-- Modal -->
+        <div class="modal" id="dialog_cnt"  aria-hidden="true">
+            <div style="width: 100%;height: 100%;display: flex!important;justify-content: center;align-items: center;">
+                <div id="dialog_bg" style="width: 75%;height: 95%;display: grid;text-align: center;background-size:100% 100%;background-repeat: no-repeat;">
+                    <div style="align-self: flex-end;margin-bottom: 6%">
+                        <button style="width: 25%;margin-right: 1%;border-radius: 30px!important;" id="dialog_btn_yes" type="button" class="btn"><h3 id="dialog_yes_text"></h3></button>
+                        <button style="width: 25%;margin-left: 1%;border-radius: 30px!important;" id="dialog_btn_no" type="button" class="btn"><h3 id="dialog_no_text"></h3></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!--      <div id="item_template" style="display: none" >-->
+
+<!--      </div>-->
+
+<iframe id="player_frame" scrolling="no" seamless="seamless" style="display: none" src="empty.html" title="" class="player-frame"></iframe>
+
+
+<!-- Slider Start -->
+<div class="application-slider" style="display: none" id="row_slider_template">
+    <div style="display: none; margin-top: 50px" id="item_slider_template">
+        <a style="height: 100%;" href="#">
+            <div class="shows-img">
+                <img id="item_slider_image_template"
+                     src="https://www.uptvs.com/wp-contents/uploads/2022/10/Lou-Trailer.jpg" class="w-100" alt="">
+                <div class="shows-content">
+                    <h4 id="item_slider_text_template" class="text-white mb-1"></h4>
+                    <div class="movie-time d-flex align-items-center">
+                        <div style="display: none" class="badge badge-secondary p-1 mr-2">9+</div>
+                        <span class="text-white"></span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+<!-- Slider End -->
+
+<div id="row_template" class="item-container" style="display: none">
+    <ul class="item-ul" id="ul_template">
+        <li style="display: none" id="li_template" class="inner-item item-li">
+            <div style="display: none;height: 100%;width: 100%" id="item_template">
+                <img style="width: 100%;height: 100%;border-radius: 8px"  src="#">
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+<div style="display: none" id="item_header_template" class="item-header-container">
+    <div id="row_text1_template" style="width: 100%" class="item-header-content">Text1</div>
+    <div id="row_text2_template" style="width: 100%; text-align: end;" class="item-header-overlay">Text2</div>
+    <div id="row_text3_template" style="width: 100%; text-align: center;" class="item-header-overlay">Text3</div>
+</div>
+
+
+<!-- jQuery, Popper JS -->
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Slick JS -->
+<script src="js/slick.min.js"></script>
+<!-- owl carousel Js -->
+<script src="js/owl.carousel.min.js"></script>
+<!-- select2 Js -->
+<script src="js/select2.min.js"></script>
+<!-- Magnific Popup-->
+<script src="js/jquery.magnific-popup.min.js"></script>
+<!-- Slick Animation-->
+<script src="js/slick-animation.min.js"></script>
+<!-- Custom JS-->
+<script src="js/lazysizes.min.js"  async=""></script>
+<script src="js/custom.js"></script>
+<script type="text/javascript" src="js/tvjs/main.js"></script>
+
+<script src="js/tvjs/play_data_handler.js"></script>
+<script src="js/tvjs/back_handler.js"></script>
+<script src="js/tvjs/helpers.js"></script>
+<script src="js/tvjs/enums.js"></script>
+<script src="js/tvjs/tv_operations.js"></script>
+<script src="js/tvjs/pages/serial.js"></script>
+
+</body>
+</html>

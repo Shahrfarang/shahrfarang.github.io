@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <!-- Typography CSS -->
+    <link rel="stylesheet" href="css/typography.css">
+    <!-- Style -->
+    <link rel="stylesheet" href="css/style.css"/>
+    <!-- Responsive -->
+    <link rel="stylesheet" href="css/responsive.css"/>
+
+
+    <link rel="stylesheet" href="css/tvcss/custom.css">
+    <link rel="stylesheet" href="css/tvcss/loading.css">
+
+</head>
+<body style="background-image: url('images/tv/splash_bg.jpg');
+          background-repeat: no-repeat;background-attachment: fixed;
+          background-size: cover">
+
+
+
+
+
+<div id="main-container" class="overlay-container">
+    <div id="error-ent" class="overlay-child"></div>
+
+
+    <div id="loading-cnt" class="overlay-child">
+
+        <div class="splash-center">
+
+            <div style="width: 100%;text-align: center"><img style="width: 180px" src="images/tv/logo.png"/></div>
+            <div style="width: 100%;text-align: center;margin-top: 40px">
+                <img style="width: 30%" src="images/tv/logo_w.png"/>
+            </div>
+
+            <div id="loading_cnt" style="width: 100%;text-align: center;margin-top: 40px">
+                <div class="lds-ring">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            <div id="error_cnt" style="width: 100%;text-align: center;margin-top: 40px;display: none">
+                <h4 id="error_msg">Connection eror</h4>
+            </div>
+
+            <div id="btn_cnt" style="width: 100%;text-align: center;margin-top: 40px;display: none">
+                <button class="btn btn-danger">Try Again</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div >
+        <!-- Modal -->
+        <div class="modal" id="dialog_cnt"  aria-hidden="true">
+            <div style="width: 100%;height: 100%;display: flex!important;justify-content: center;align-items: center;">
+                <div id="dialog_bg" style="width: 75%;height: 95%;display: grid;text-align: center;background-size:100% 100%;background-repeat: no-repeat;">
+                    <div style="align-self: flex-end;margin-bottom: 6%">
+                        <button style="width: 25%;margin-right: 1%;border-radius: 30px!important;" id="dialog_btn_yes" type="button" class="btn"><h3 id="dialog_yes_text"></h3></button>
+                        <button style="width: 25%;margin-left: 1%;border-radius: 30px!important;" id="dialog_btn_no" type="button" class="btn"><h3 id="dialog_no_text"></h3></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div style="position: relative;padding-top: 0px" id="rows_cnt" class="main-content">
+
+        </div>
+
+        <!-- MainContent End-->
+
+
+    </div>
+</div>
+
+
+<!-- jQuery, Popper JS -->
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="js/bootstrap.min.js"></script>
+<!-- select2 Js -->
+<script src="js/select2.min.js"></script>
+
+<!-- Slick Animation-->
+<script src="js/slick-animation.min.js"></script>
+
+
+<script type="text/javascript" src="js/tvjs/main.js"></script>
+
+
+<script src="js/tvjs/play_data_handler.js"></script>
+<script src="js/tvjs/helpers.js"></script>
+<script src="js/tvjs/enums.js"></script>
+<script src="js/tvjs/tv_operations.js"></script>
+<script src="js/tvjs/pages/splash.js"></script>
+<script src="js/tvjs/storage_handler.js"></script>
+</body>
+</html>
